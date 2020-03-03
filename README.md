@@ -1,2 +1,0 @@
-# ReactApps
-React Applications
