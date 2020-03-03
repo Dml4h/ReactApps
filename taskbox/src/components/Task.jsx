@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // take in attributes we will need and two possible actions on a task
 
 export default function Task({
@@ -11,11 +11,13 @@ export default function Task({
     <div className={`list-item ${state}`}>
       <label className="checkbox">
         <input
-          type="checkbox"
-          defaultChecked={state === "TASK_ARCHIVED"}
-          disabled={true}
-          name="checked"
+          type="text"
+          value={title}
+          readOnly={true}
+          placeholder="Input title"
+          style={{ textOverflow: "ellipsis" }}
         />
+
         <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
       </label>
       <div className="title">
@@ -38,14 +40,14 @@ export default function Task({
   );
 }
 
-//Specifies the shape of data that Task component expects to 
+//Specifies the shape of data that Task component expects to
 //catch component misuse and problems by checking every possible state
 Task.propTypes = {
-    task: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        state: PropTypes.string.isRequired,
-    }),
-    onArchiveTask: PropTypes.func,
-    onPinTask: PropTypes.func,
+  task: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired
+  }),
+  onArchiveTask: PropTypes.func,
+  onPinTask: PropTypes.func
 };

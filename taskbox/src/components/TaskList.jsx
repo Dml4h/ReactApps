@@ -4,6 +4,10 @@ import Task from "./Task";
 import { connect } from 'react-redux';
 import { archiveTask, pinTask } from '../lib/redux';
 
+//TaskList component is a container that renders the PureTaskList
+// presenetial component. A container;s components are not simply rendered
+// they need some data or connection to a service
+//Storybook requires a mock version/context to render
 export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   const events = {
     onPinTask,
